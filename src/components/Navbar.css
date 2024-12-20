@@ -1,0 +1,24 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000; /* Tamamen siyah arka plan */
+    height: 90px; /* Yükseklik 150px */
+    padding: 0 2rem; /* Sol ve sağdan boşluk */
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem; /* Butonlar arasında boşluk */
+}
+
+.nav-links a {
+    color: white; /* Beyaz metin */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #1db954; /* Spotify yeşil rengi */
+    text-shadow: 2px 2px 10px #1db954;
+}

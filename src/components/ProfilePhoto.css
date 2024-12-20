@@ -1,0 +1,26 @@
+.profile-photo {
+    display: flex;
+    flex-direction: row; /* Dikey hizalama */
+    align-items: center; /* Ortalamak için */
+    margin: 20px; /* Dış boşluk */
+}
+
+.profile-name {
+    font-size: 1.5em; /* Kullanıcı adı boyutu */
+    color: #ffffff; /* Metin rengi */
+    margin-right: 18px;
+    transition: 0.3s ease;
+}
+
+.profile-name:hover {
+
+    color: #0ea500; /* Hover rengi */
+}
+
+.profile-image {
+    width: 75px; /* Resim genişliği */
+    height: 75px; /* Resim yüksekliği */
+    border-radius: 50%; /* Yuvarlak resim */
+    border: 3.5px solid #20a100; /* Beyaz kenarlık */
+    object-fit: cover; /* Resmin kesilmeden sığması */
+}

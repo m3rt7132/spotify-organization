@@ -1,0 +1,49 @@
+.playlist-detail {
+    max-width: 800px; /* Maksimum genişlik */
+    margin: 20px auto; /* Ortalamak için otomatik kenar boşluğu */
+    padding: 20px; /* İçerik için boşluk */
+    background-color: #1e1e1e; /* Koyu arka plan rengi */
+    border-radius: 10px; /* Köşeleri yuvarlat */
+    color: #ffffff; /* Metin rengi */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Gölge efekti */
+}
+
+.playlist-detail h1 {
+    font-size: 2em; /* Başlık boyutu */
+    margin-bottom: 10px; /* Alt boşluk */
+}
+
+.playlist-detail img {
+    width: 200px; /* Resmin genişliği */
+    border-radius: 10px; /* Resmin köşelerini yuvarlat */
+    margin-bottom: 20px; /* Alt boşluk */
+}
+
+.playlist-detail p {
+    font-size: 1.5em; /* Açıklama metni boyutu */
+    margin-bottom: 30px; /* Alt boşluk */
+}
+
+.track-list {
+    margin: 0;
+}
+.track-list li {
+    background-color:rgb(78, 78, 78);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin: 4px;
+}
+
+.track-list img {
+    width:60px;
+    height:60px;
+    border-radius: 5px;
+    margin-right: 15px
+}
+
+.track-list span {
+    font-size: 1.1em;
+    color: #ffffff;
+}
