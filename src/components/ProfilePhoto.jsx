@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import "./ProfilePhoto.css";
 
 const ProfilePhoto = () => {
    const [profileImage, setProfileImage] = useState(null);
@@ -29,14 +28,16 @@ const ProfilePhoto = () => {
    }, []);
 
    return (
-      <div className="profile-photo">
+      <div className="flex items-center gap-5">
          {profileImage ? (
             <>
-               <p className="profile-name">{profileImage.display_name}</p>
+               <p className="text-xl font-bold hover:text-green-600 transition">
+                  {profileImage.display_name}
+               </p>
                <img
                   src={profileImage.images[0].url}
                   alt="Profil"
-                  className="profile-image"
+                  className="w-20 rounded-full border-4 border-green-600"
                />
             </>
          ) : (

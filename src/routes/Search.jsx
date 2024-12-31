@@ -7,10 +7,11 @@ const Search = () => {
    const [query, setQuery] = useState("");
    const [results, setResults] = useState([]);
    const accessToken = Cookies.get("login");
+   if (!accessToken) return (window.location.href = "http://localhost:5173");
 
    const handleSearch = async (e) => {
       e.preventDefault();
-      if (query && accessToken) {
+      if (query) {
          try {
             const response = await axios.get(
                `https://api.spotify.com/v1/search`,

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useParams } from "react-router-dom";
-import "./PlaylistDetail.css"; // CSS dosyasını import et
 
 const PlaylistDetail = () => {
    const { playlistId } = useParams();
@@ -31,6 +30,9 @@ const PlaylistDetail = () => {
             }
          }
          getPlaylistDetail();
+      } else {
+         console.log("No login");
+         window.location.href = "http://localhost:5173";
       }
    }, [accessToken, playlistId]);
 
@@ -59,26 +61,38 @@ const PlaylistDetail = () => {
    }, [playlist, playlistId]);
 
    return (
-      <div className="playlist-detail">
+      <div className="flex justify-center items-center w-full h-screen">
          {playlist ? (
-            <div>
-               <h1>{playlist.name}</h1>
-               <img src={playlist.images[0].url} alt={playlist.name} />
-               <p>{playlist.description}</p>
-               <ol className="track-list">
+            <div className="flex flex-col w-2/3 gap-4 items-center h-full rounded-2xl mt-8 p-5 bg-zinc-800">
+               <h1 className="text-3xl font-bold">{playlist.name}</h1>
+               <img
+                  src={playlist.images[0].url}
+                  alt={playlist.name}
+                  className="w-56 rounded-2xl"
+               />
+               <p className="italic text-base">{playlist.description}</p>
+               <ol className="flex flex-col w-full justify-start gap-5">
                   {tracks.map((track) => (
-                     <li key={track.track.id}>
+                     <li
+                        key={track.track.id}
+                        className="flex items-center justify-start gap-3"
+                     >
                         <img
                            src={track.track.album.images[0].url}
                            alt={track.track.name}
+                           className="w-20 rounded-2xl"
                         />
-                        <span>{track.track.name}</span>
+                        <span className="font-semibold">
+                           {track.track.name}
+                        </span>
                      </li>
                   ))}
                </ol>
             </div>
          ) : (
-            <div>Playlist yükleniyor...</div>
+            <div className="text-5xl font-bold italic">
+               Playlist yükleniyor...
+            </div>
          )}
       </div>
    );

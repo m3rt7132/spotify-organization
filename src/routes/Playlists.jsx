@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./Playlists.css"; // CSS dosyasını import edin
 import axios from "axios";
 import Cookies from "js-cookie";
 import { Link } from "react-router-dom";
@@ -28,23 +27,32 @@ const Playlists = () => {
          } catch (error) {
             console.error(error);
          }
+      } else {
+         console.log("No login");
+         window.location.href = "http://localhost:5173";
       }
    }, []);
    Cookies.get("userid");
 
    return (
-      <div className="playlists-container">
+      <div className="flex flex-row gap-6 w-full h-screen flex-wrap m-8">
          {playlists
             .filter((x) => x.owner.id == Cookies.get("userid"))
             .map((playlist) => (
-               <div className="playlist-card" key={playlist.id}>
-                  <Link to={`/playlists/${playlist.id}`}>
+               <div
+                  className="flex flex-col w-52 h-3/3 bg-green-950 rounded-3xl"
+                  key={playlist.id}
+               >
+                  <Link
+                     to={`/playlists/${playlist.id}`}
+                     className="flex flex-col items-center gap-4"
+                  >
                      <img
                         src={playlist.images[0].url}
                         alt={playlist.name}
-                        className="playlist-cover"
+                        className="w-max h-max rounded-t-xl rounded-r-xl object-cover"
                      />
-                     <h3 className="playlist-name">{playlist.name}</h3>
+                     <h3 className="text-base ">{playlist.name}</h3>
                   </Link>
                </div>
             ))}
